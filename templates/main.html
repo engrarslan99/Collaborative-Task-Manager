@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task Management System</title>
+        <link type="text/css" href="{{ url_for('static', path='styles.css') }}" rel="stylesheet"/>
+        <script type="module" src="{{ url_for('static', path='/firebase-login.js') }}"></script>
+    </head>
+    <body>
+        <div id="login-box">
+            <h2>Login to Task Manager</h2>
+            <input type="email" id="email" placeholder="Email Address"><br/>
+            <input type="password" id="password" placeholder="Password"><br/>
+            <button id="login">Login</button>
+            <button id="sign-up">Sign Up</button>
+        </div>
+
+        <div style="display: flex; flex-direction: column; align-items: flex-start; position: absolute; top: 0; left: 0; padding: 8px;">
+            <p style="margin: 0 0 4px 0; font-weight: bold;">{{ user_token.email }}</p>
+            <button id="sign-out" style="padding: 5px 10px; font-size: 15px; line-height: 1;">Sign out</button>
+        </div>
+          
+
+        {% if user_token %}
+            <h2>Task Management System</h2>
+            <h3>Create New Task Board</h3>
+            <form action="/create-board" method="post" style="display: flex; flex-direction: column; gap: 6px; max-width: 200px;">
+                <input 
+                  type="text" 
+                  name="board_name" 
+                  placeholder="Enter Board Name"
+                  style="padding: 8px 10px; font-size: 15px; line-height: 1.2;"
+                >
+                <input 
+                  type="submit" 
+                  value="Create Board"
+                  style="padding: 4px 6px; font-size: 14px; line-height: 1.2; cursor: pointer;"
+                >
+            </form>
+
+            <h3>Your Task Boards</h3>
+                {% for board in boards %}
+                <span style="display: inline;">Board Name: <strong style="font-weight: bold;">{{ board.data.name }}</strong></span>
+                {% if user_token and board.data.owner_id == user_token.user_id %}
+                    (Creator)
+                {% endif %}
+                
+                <a href="/board/{{ board.id }}">Open Board</a>
+                <br/>
+            {% endfor %}
+        {% endif %}
+    </body>
+</html>
