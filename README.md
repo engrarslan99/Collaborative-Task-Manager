@@ -90,8 +90,8 @@ taskboards (collection)
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/engrarslan99/collaborative-task-manager.git
-cd collaborative-task-manager
+git clone https://github.com/engrarslan99/Collaborative-Task-Manager.git
+cd Collaborative-Task-Manager
 ```
 
 ### 2. Configure Firebase
