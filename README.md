@@ -131,7 +131,19 @@ gcloud app deploy
 
 ---
 
+## 🎓 Academic Context
 
-## 📄 License
+| Detail | Info |
+|--------|------|
+| **Institution** | Griffith College Dublin |
+| **Programme** | MSc Computer Science |
+| **Module** | Cloud Platforms & Applications |
+| **Year** | 2025 |
 
-MIT License — feel free to use this project as inspiration for your own work.
+---
+
+## 👨‍💻 Author
+
+**Arslan Ashfaq**  
+[LinkedIn](https://www.linkedin.com/in/arslanashfaq99) · [GitHub](https://github.com/engrarslan99)
+
